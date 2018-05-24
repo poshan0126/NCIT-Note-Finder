@@ -25,7 +25,7 @@ SECRET_KEY = 'dx#&nf8r4_e*9!nsv+0hsz_x-@w2^(+))6))9^w9_*qt!e2k!b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['notefinder.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
