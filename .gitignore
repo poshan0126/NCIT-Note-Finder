@@ -2,3 +2,12 @@
 *.sqlite3
 __pycache__
 NoteEnv/
+*.png
+*.jpeg
+*.pdf
+*.jpg
+*.mp4
+*.mov
+*.txt
+*.docx
+*.ppt
