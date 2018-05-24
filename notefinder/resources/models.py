@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -117,6 +118,7 @@ class ResourceItem(models.Model):
     file = models.FileField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)
+    tags = TaggableManager()
     
 
     class Meta:

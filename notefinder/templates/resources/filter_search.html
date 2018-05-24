@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Search Button</title>
+</head>
+<body>
+
+
+
+
+    <form action="{% url 'filter_search' %}" method="get">
+        
+
+
+        <label for="featured">Format</label>
+        <select name = "Faculty">
+            <option value = "ST"/>Science and Technology</option>
+
+        </select>
+        <select name="featured">
+            <option value="Yes" />Yes</option>
+            <option value="No" />No</option>
+        </select>
+        <select name = "another_featured">
+            <option value = "Ha"/>Ha</option>
+            <option value = "Na"/>Na</option>
+        </select>
+        <input type="submit" name="featured" value="Filter" />
+</form>     
+
+    <h1>All Resources</h1>
+    {% for resource in all_resources  %}
+        {{resource}}
+        
+    {% endfor %}
+        
+
+</body>
+</html>
