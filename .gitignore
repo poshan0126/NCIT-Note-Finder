@@ -2,6 +2,7 @@
 *.sqlite3
 __pycache__
 NoteEnv/
+Env/
 *.png
 *.jpeg
 *.pdf
