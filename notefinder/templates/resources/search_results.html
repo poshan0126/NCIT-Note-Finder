@@ -10,6 +10,8 @@
         {% for resource in resources  %}
 
             <h3>{{resource}}</h3>
+            <a href="{% url 'Download' id=resource.id %}">Download</a>
+            <a href="{% url 'Preview' id=resource.id %}">Preview</a>
     
         {% endfor %}
     {% else %}
