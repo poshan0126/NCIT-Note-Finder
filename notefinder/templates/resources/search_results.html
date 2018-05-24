@@ -6,19 +6,31 @@
 
 {% block content %}
 
-    {% if resources %}
-        {% for resource in resources  %}
+    <div class = "container">
+            <div class = "row">
+                {% if resources %}
 
-            <h3>{{resource}}</h3>
-            <a href="{% url 'Download' id=resource.id %}">Download</a>
-            <a href="{% url 'Preview' id=resource.id %}">Preview</a>
+                {% for resource in resources  %}
+                    <div class = "col-md-4 col-xs-6">
+
+                        <h5>{{resource|truncatechars:36}}</h3>
+                            <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
+                            <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
+                    </div>
+            
+                {% endfor %}
+                {% else %}
+                    <h3>Sorry! No results Found.
+                
+                {% endif %}
+            </div>
+
+    </div>
+
     
-        {% endfor %}
-    {% else %}
-        <h3>Sorry! No results Found.
-        
-    {% endif %}
 
 
     
 {% endblock content %}
+
+
