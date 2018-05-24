@@ -27,6 +27,7 @@ def search(request):
             Q(course__code__icontains=query_string)|
             Q(course__name__icontains=query_string)|
             Q(description__icontains=query_string) |
+            Q(file__icontains=query_string)|
             Q(tags__name__in=[query_string])
             ).distinct()
     template_name = "resources/search_results.html"
