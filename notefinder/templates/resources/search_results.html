@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block Title %}
+    Search Result 
+{% endblock Title %}
+
+{% block content %}
+
+    {% if resources %}
+        {% for resource in resources  %}
+
+            <h3>{{resource}}</h3>
+    
+        {% endfor %}
+    {% else %}
+        <h3>Sorry! No results Found.
+        
+    {% endif %}
+
+
+    
+{% endblock content %}
