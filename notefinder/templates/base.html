@@ -44,7 +44,7 @@
         {% if request.path_info == "/add_resource/" or request.path_info == "/add_resource_file/" or request.path_info == "/add_resource_url/" %}
           
           
-        {% else %}>
+        {% else %}
           <a class="btn btn-primary" href="{% url 'AddResource' %}"><i class = "fa fa-upload"></i> Upload</a>
         {% endif %}
       </div>
