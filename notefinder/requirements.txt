@@ -1,0 +1,4 @@
+-f /usr/share/pip-wheels
+Django==2.0.5
+django-taggit==0.22.2
+pytz==2018.4
