@@ -8,23 +8,50 @@
 
     <div class = "container">
             <div class = "row">
-                {% if resources %}
+                <div class="col-md-6 col-xs-12">
+                    {% if resources %}
+                    <h1> All the Files We Got!!</h1>
 
-                {% for resource in resources  %}
-                    <div class = "col-md-4 col-xs-6">
+                    <div class="row">
 
-                        <h5>{{resource|truncatechars:36}}</h3>
-                            <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
-                            <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
+                        {% for resource in resources  %}
+                            <div class = "col-md-4 col-xs-6">
+
+                                <h5>{{resource|truncatechars:36}}</h5>
+                                    <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
+                                    <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
+                            </div>
+
+                        {% endfor %}
                     </div>
+                    {% else %}
+                        <h1>Sorry!! We are blank. No Files Found.</h1>
+                    {% endif %}
 
-                {% endfor %}
-                {% else %}
-                    <h3>Sorry! Database is Empty for this Query. Need Some time!!!
+                </div> <!-- //half -->
 
-                {% endif %}
-            </div>
+                <div class="col-md-6 col-xs-12">
 
+                    {% if url_resources %}
+                    <h1> All the URLs We Got!!</h1>
+                    <div class = "row">
+
+                        {% for url_resource in url_resources  %}
+                            <div class = "col-md-4 col-xs-6">
+
+                                <h5><a href="{{url_resource}}">{{url_resource.title|truncatechars:36}}</a></h5>
+                                    
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        <h1>Sorry!! We are blank.</h1>
+                    {% endif %}
+
+                </div>
+
+            </div> <!-- //Row -->
     </div>
 
 

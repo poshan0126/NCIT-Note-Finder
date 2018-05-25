@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block Title %}
+
+Choose Your Option To Add Resource
+    
+{% endblock Title %}
+
+{% block content %}
+
+    <div class ="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <h1><a href="{% url 'AddResourceFile' %}">Add Files</a></h1>
+
+            </div>
+
+            <div class="col-md-6 col-xs-6">
+                <h1><a href="{% url "AddResourceURL" %}">Add URLs</a></h1>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block Title %}
+    Add URLs | youtube Link | Google Drive Link | Others
+    
+{% endblock Title %}
+
+{% block content %}
+
+
+    <div class="container">
+                <div class="row">
+                    <div class="col-sm-10">
+            {% crispy form %}
+                    </div>
+                </div>
+            </div>
+    
+{% endblock content %}

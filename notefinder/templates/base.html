@@ -41,10 +41,12 @@
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
         <a class="navbar-brand" href="/">Ncit Note Finder</a>
-        {% if request.path_info != "/add_resource/" %}
+        {% if request.path_info == "/add_resource/" or request.path_info == "/add_resource_file/" or request.path_info == "/add_resource_url/" %}
           
-          <a class="btn btn-primary" href="{% url 'AddResource' %}"><i class = "fa fa-upload"></i> Upload</a
-        {% endif %}>
+          
+        {% else %}>
+          <a class="btn btn-primary" href="{% url 'AddResource' %}"><i class = "fa fa-upload"></i> Upload</a>
+        {% endif %}
       </div>
     </nav>
 

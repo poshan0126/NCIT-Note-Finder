@@ -1,5 +1,5 @@
 from django.contrib import admin
-from resources.models import DeptSem, Faculty, Course, ResourceItem
+from resources.models import DeptSem, Faculty, Course, ResourceItem, ResourceURL
 # Register your models here.
 
 
@@ -18,6 +18,7 @@ class ResourceItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ResourceItem, ResourceItemAdmin)
+admin.site.register(ResourceURL)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(DeptSem)
 admin.site.register(Faculty)

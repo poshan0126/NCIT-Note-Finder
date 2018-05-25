@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from resources.models import ResourceItem, Course
+from resources.models import ResourceItem, Course, ResourceURL
 from django.db.models import Q
 from django.http import FileResponse
 from django.utils.text import slugify
-from resources.forms import ResourceItemForm 
+from resources.forms import ResourceItemForm, ResourceURLForm
 import os
 
 # Create your views here.
@@ -22,6 +22,8 @@ def home(request):
 
 def search(request):
     resources = ResourceItem.objects.all()
+    url_resources = ResourceURL.objects.all()
+
     query_string = request.GET.get('search_q')
     if query_string:
         resources = resources.filter(
@@ -31,9 +33,17 @@ def search(request):
             Q(file__icontains=query_string)|
             Q(tags__name__in=[query_string])
             ).distinct()
+        url_resources = url_resources.filter(
+            Q(course__code__icontains=query_string)|
+            Q(course__name__icontains=query_string)|
+            Q(description__icontains=query_string) |
+            Q(url__icontains=query_string)|
+            Q(tags__name__in=[query_string])
+            ).distinct()
     template_name = "resources/search_results.html"
     context = {
-        "resources": resources
+        "resources": resources,
+        "url_resources":url_resources,
     }
     return render(request, template_name, context)
 
@@ -59,6 +69,12 @@ def preview_item(request, id):
     return redirect('/media/' + file.name)
 
 
+
+def add_resource(request):
+    template_name = "resources/add_resource.html"
+    return render(request, template_name)
+
+
 def add_resource_item(request):
     if request.method == "POST":
         form = ResourceItemForm(request.POST, request.FILES)
@@ -76,4 +92,22 @@ def add_resource_item(request):
     }
     return render(request, template_name, context)
 
+
+
+def add_resource_url(request):
+    if request.method == "POST":
+        form = ResourceURLForm(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            resource = form.save(commit=False)
+
+            resource.save()
+            return redirect('HomePage')
+
+    form = ResourceURLForm()
+    template_name = "resources/add_resource_url.html"
+    context = {
+        'form':form,
+    }
+    return render(request, template_name, context)
 
