@@ -10,5 +10,6 @@ Env/
 *.mp4
 *.mov
 *.txt
+!requirements.txt
 *.docx
 *.ppt
