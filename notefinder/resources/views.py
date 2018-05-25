@@ -81,8 +81,8 @@ def add_resource_item(request):
         print(form.errors)
         if form.is_valid():
             resource = form.save(commit=False)
-
             resource.save()
+            form.save_m2m()
             return redirect('HomePage')
 
     form = ResourceItemForm()
@@ -100,8 +100,8 @@ def add_resource_url(request):
         print(form.errors)
         if form.is_valid():
             resource = form.save(commit=False)
-
             resource.save()
+            form.save_m2m()
             return redirect('HomePage')
 
     form = ResourceURLForm()
