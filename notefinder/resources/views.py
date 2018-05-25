@@ -69,11 +69,11 @@ def add_resource_item(request):
             resource.save()
             return redirect('HomePage')
 
-        form = ResourceItemForm()
-        template_name = "resources/add_resource_item.html"
-        context = {
-            'form':form,
-        }
+    form = ResourceItemForm()
+    template_name = "resources/add_resource_item.html"
+    context = {
+        'form':form,
+    }
     return render(request, template_name, context)
 
 
