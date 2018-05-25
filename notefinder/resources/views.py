@@ -3,7 +3,7 @@ from resources.models import ResourceItem, Course
 from django.db.models import Q
 from django.http import FileResponse
 from django.utils.text import slugify
-from resources.forms import ResourceItemForm
+from resources.forms import ResourceItemForm 
 import os
 
 # Create your views here.
@@ -64,18 +64,16 @@ def add_resource_item(request):
         form = ResourceItemForm(request.POST, request.FILES)
         print(form.errors)
         if form.is_valid():
-            resource = form.save(commit=False) 
+            resource = form.save(commit=False)
+
             resource.save()
             return redirect('HomePage')
-        else:
-            print("Form is not Valid")
-            return redirect("HomePage")
-    else:
+
         form = ResourceItemForm()
         template_name = "resources/add_resource_item.html"
         context = {
             'form':form,
         }
-        return render(request, template_name, context)
+    return render(request, template_name, context)
 
 
