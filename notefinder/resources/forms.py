@@ -25,7 +25,8 @@ class ResourceItemForm(forms.ModelForm):
         self.helper.layout = Layout(
                     Fieldset(
                         'Upload New File',
-                        Alert(content='<strong>WoW!</strong> You are doing great</br></br> <strong>Stop!!</strong> Currently, We only accept .pdf, .docx, .doc, .png, .jpeg, .jpg, .ppt, .xlxs, .txt, ODT, FODT, ODS, FODS, ODP, FODP, ODG, FODG, ODF, .rst</br></br><strong>We Love PDFs and Images.</br></br>Uploading of any file, except above accepted file format will results in automatic disqualification.', css_class = 'alert alert-info'),
+                        Alert(content='<strong>WoW!</strong> You are doing great</br></br> <strong>Stop!!</strong> Currently, We only accept .pdf, .docx, .doc, .png, .jpeg, .jpg, .ppt, .xlxs, .txt, ODT, FODT, ODS, FODS, ODP, FODP, ODG, FODG, ODF, .rst</br></br><strong></br></br>Uploading of any file, except above accepted file format will results in automatic disqualification.', css_class = 'alert alert-info'),
+                        'title',
                         'file',
                         Alert(content='<strong>Select the exact course for your resource.</strong>', css_class = 'alert alert-info'),
                         'course',

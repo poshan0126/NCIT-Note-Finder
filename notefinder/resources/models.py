@@ -115,6 +115,7 @@ class Course(models.Model):
 
 
 class ResourceItem(models.Model):
+    title = models.CharField(max_length=100)
     file = models.FileField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)

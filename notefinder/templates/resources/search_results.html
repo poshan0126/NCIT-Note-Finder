@@ -17,7 +17,7 @@
                         {% for resource in resources  %}
                             <div class = "col-md-4 col-xs-6">
 
-                                <h5>{{resource|truncatechars:36}}</h5>
+                                <h5>{{resource.title|truncatechars:36}}</h5>
                                     <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
                                     <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
                             </div>
