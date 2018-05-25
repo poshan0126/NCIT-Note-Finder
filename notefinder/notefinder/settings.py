@@ -44,7 +44,8 @@ MY_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "taggit"
+    "taggit",
+    "crispy_forms",
 
 ]
 

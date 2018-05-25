@@ -3,6 +3,7 @@ from resources.models import ResourceItem, Course
 from django.db.models import Q
 from django.http import FileResponse
 from django.utils.text import slugify
+from resources.forms import ResourceItemForm
 import os
 
 # Create your views here.
@@ -56,5 +57,25 @@ def preview_item(request, id):
     print("---------------------{}{}, {}".format(item.file.file.name,file_name, file_extension))
     file = item.file
     return redirect('/media/' + file.name)
+
+
+def add_resource_item(request):
+    if request.method == "POST":
+        form = ResourceItemForm(request.POST, request.FILES)
+        print(form.errors)
+        if form.is_valid():
+            resource = form.save(commit=False) 
+            resource.save()
+            return redirect('HomePage')
+        else:
+            print("Form is not Valid")
+            return redirect("HomePage")
+    else:
+        form = ResourceItemForm()
+        template_name = "resources/add_resource_item.html"
+        context = {
+            'form':form,
+        }
+        return render(request, template_name, context)
 
 
