@@ -22,6 +22,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static "css/landing-page.min.css" %}" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88943346-4"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-88943346-4');
+        </script>
+
 
   </head>
 
@@ -36,14 +46,14 @@
     </nav>
 
     {% block search_form %}
-        
+
     {% endblock search_form %}
 
 
 
 
 {% block content %}
-    
+
 {% endblock content %}
 
     <!-- Footer -->
