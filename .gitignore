@@ -4,13 +4,3 @@ __pycache__
 NoteEnv/
 media/
 Env/
-*.png
-*.jpeg
-*.pdf
-*.jpg
-*.mp4
-*.mov
-*.txt
-!requirements.txt
-*.docx
-*.ppt
