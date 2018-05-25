@@ -86,7 +86,7 @@ class ResourceURLForm(forms.ModelForm):
         self.helper.layout = Layout(
                     Fieldset(
                         'Register a New URL',
-                        Alert(content='<strong>Thanks for your effor!!. </br></br> You are keeping our community alive.</br></br>Uploading of spam URLs will result in automatic disqualification and Peanalised the IP address.</strong>.', css_class = 'alert alert-info'),
+                        Alert(content='<strong>Thanks for your effort!!. </br></br> You are keeping our community alive.</br></br>Uploading of spam URLs will result in automatic disqualification and Peanalised the IP address.</strong>.', css_class = 'alert alert-info'),
                         'title',
                         'url',
                         Alert(content='<strong>Select the exact course for your resource.</strong>', css_class = 'alert alert-info'),
