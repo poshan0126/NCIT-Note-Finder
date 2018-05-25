@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block Title %}
-    Search Result 
+    Search Result
 {% endblock Title %}
 
 {% block content %}
@@ -17,20 +17,20 @@
                             <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
                             <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
                     </div>
-            
+
                 {% endfor %}
                 {% else %}
-                    <h3>Sorry! No results Found.
-                
+                    <h3>Sorry! Database is Empty for this Query. Need Some time!!!
+
                 {% endif %}
             </div>
 
     </div>
 
-    
 
 
-    
+
+
 {% endblock content %}
 
 
