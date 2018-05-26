@@ -58,11 +58,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/">View By Department</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="/">Download Policy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/">Upload Policy</a>
+            <a class="nav-link" href="{% url 'AddResource' %}"><i class="icon-cloud-upload m-auto text-primary"></i> Upload</a>
           </li>
           <li class = "nav-item">
             <a class = "nav-link" href = "/">Who owns these Notes?</a>
@@ -73,13 +71,6 @@
           </li>
         </ul>
       </div>
-
-      {% if request.path_info == "/add_resource/" or request.path_info == "/add_resource_file/" or request.path_info == "/add_resource_url/" %}
-          
-          
-        {% else %}
-          <a class="btn btn-warning" href="{% url 'AddResource' %}"><i class = "fa fa-upload"></i> Upload</a>
-        {% endif %}
 
     </nav>
 
