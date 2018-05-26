@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.http import FileResponse
 from django.utils.text import slugify
 from resources.forms import ResourceItemForm, ResourceURLForm
+from django.utils.text import slugify
 import os
 
 # Create your views here.
@@ -81,6 +82,7 @@ def add_resource_item(request):
         print(form.errors)
         if form.is_valid():
             resource = form.save(commit=False)
+            resource.slug = slugify(resource.title)
             resource.save()
             form.save_m2m()
             return redirect('HomePage')
@@ -93,7 +95,7 @@ def add_resource_item(request):
     return render(request, template_name, context)
 
 
-def resource_item_detail(request, pk):
+def resource_item_detail(request, pk, slug):
     resource = get_object_or_404(ResourceItem, pk=pk)
     template_name = 'resources/resource_item_detail.html'
     context = {
@@ -110,6 +112,7 @@ def add_resource_url(request):
         print(form.errors)
         if form.is_valid():
             resource = form.save(commit=False)
+            resource.slug = slugify(resource.title)
             resource.save()
             form.save_m2m()
             return redirect('HomePage')

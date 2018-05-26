@@ -7,7 +7,7 @@ urlpatterns = [
     path('download/<int:id>', download_item, name="Download"),
     path('preview/<int:id>', preview_item, name = "Preview"),
     path('add_resource/', add_resource, name = "AddResource"),
-    path('add_resource_file/', add_resource_item, name="AddResourceFile"),
-    path('add_resource_url/', add_resource_url, name="AddResourceURL"),
-    path('resource_item_detail/<int:pk>/', resource_item_detail, name="ResourceItemDetail"),
+    path('add-notes/', add_resource_item, name="AddResourceFile"),
+    path('add-notes-urls/', add_resource_url, name="AddResourceURL"),
+    path('notes-detail/<slug:slug>/<int:pk>/', resource_item_detail, name="ResourceItemDetail"),
 ]

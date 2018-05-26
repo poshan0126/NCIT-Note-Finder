@@ -116,6 +116,7 @@ class Course(models.Model):
 
 class ResourceItem(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.SlugField()
     file = models.FileField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)
@@ -136,6 +137,7 @@ class ResourceItem(models.Model):
 
 class ResourceURL(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.SlugField()
     url = models.URLField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)
