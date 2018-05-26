@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block Title %}
+    {{course.name}}
+    
+{% endblock Title %}
+
+
+{% block content %}
+    <div class = "container">
+        <div classs = "row">
+            <div class = "col-md-6 col-xs-12">
+
+            <h1>{{course.name}}</h1>
+            <p>{{course.description}}</p>
+            <ul>
+                {% for resource in resources  %}
+                    <li><a href="{% url 'ResourceItemDetail' slug=resource.slug pk=resource.pk %}">{{resource.title|truncatechars:36}}</a></li>
+                    
+                {% endfor %}
+
+            </ul>
+
+            </div>
+        </div>
+
+    </div>    
+{% endblock content %}

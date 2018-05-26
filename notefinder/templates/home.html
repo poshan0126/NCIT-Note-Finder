@@ -36,91 +36,10 @@
 {% block content %}
 
     <div class = "container-fluid">
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">C Programming</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">C Programming</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">C Programming</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">C Programming</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">C Programming</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-      <span class="badge badge-pill badge-warning">Logic Circuits Notes</span>
-      <span class="badge badge-pill badge-primary">Math-3</span>
-      <span class="badge badge-pill badge-success">Fundamentals of IT Notes</span>
-      <span class="badge badge-pill badge-info">Java Notes</span>
-      <span class="badge badge-pill badge-warning">Probability And Queing Theory</span>
-      <span class="badge badge-pill badge-danger">DSA Notes</span>
-
+      {% for course in courses  %}
+        <span class="badge badge-pill badge-{% cycle 'info' 'warning' 'success' 'primary' %}"><a href="{% url 'CourseDetail' course_code=course.code %}" style="color: white;">{{course.name}}</a></span>
+        
+      {% endfor %}
 
     </div>
         <!-- Icons Grid -->
