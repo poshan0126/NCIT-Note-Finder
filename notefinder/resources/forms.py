@@ -25,7 +25,7 @@ class ResourceItemForm(forms.ModelForm):
         self.helper.layout = Layout(
                     Fieldset(
                         'Upload New File',
-                        Alert(content='<strong>WoW!</strong>Thank You !! </br></br> Uploading May Take Time</br></br>Keep Patience, You are Awesome!!', css_class = 'alert alert-info'),
+                        Alert(content='<strong>WoW! </strong>Thank You !! </br></br> Uploading May Take Time,</br></br>Keep Patience, You are Awesome!!', css_class = 'alert alert-info'),
                         'title',
                         'file',
                         Alert(content='<strong>Select the exact course for your resource.</strong>', css_class = 'alert alert-info'),
