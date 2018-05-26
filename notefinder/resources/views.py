@@ -93,6 +93,16 @@ def add_resource_item(request):
     return render(request, template_name, context)
 
 
+def resource_item_detail(request, pk):
+    resource = get_object_or_404(ResourceItem, pk=pk)
+    template_name = 'resources/resource_item_detail.html'
+    context = {
+        'resource':resource
+    }
+    return render(request, template_name, context)
+
+
+
 
 def add_resource_url(request):
     if request.method == "POST":
