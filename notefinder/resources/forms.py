@@ -9,7 +9,7 @@ import os
 class ResourceItemForm(forms.ModelForm):
     class Meta:
         model = ResourceItem
-        fields = ('file','course','description', 'tags',)
+        fields = ('title', 'file','course','description', 'tags',)
 
 
     def __init__(self, *args, **kwargs):
