@@ -134,3 +134,12 @@ def course_detail(request, course_code):
     }
     return render(request, template_name, context)
 
+
+def course_list(request):
+    courses = Course.objects.all()
+    template_name = "resources/course_list.html"
+    context = {
+        "courses":courses,
+    }
+    return render(request, template_name,context)
+
