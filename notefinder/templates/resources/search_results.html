@@ -38,7 +38,7 @@
                         {% for url_resource in url_resources  %}
                             <div class = "col-md-4 col-xs-6">
 
-                                <h4><a href="{{url_resource}}">{{url_resource.title|truncatechars:44}}</a></h4>
+                                <h4><a href="{% url 'ResourceURLDetail' pk=url_resource.pk %}">{{url_resource.title|truncatechars:44}}</a></h4>
                                     
                             </div>
 

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block Title %}
+    {{resource.title}}
+{% endblock Title %}
+
+{% block content %}
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-6 col-xs-12">
+
+                <h1>{{resource.title}}</h1>
+                <p>{{resource.description}}</p>
+                <a href="{{resource.url}}" class = "btn btn-primary">Visit URL</a>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock content %}

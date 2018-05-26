@@ -1,5 +1,5 @@
 from django.urls import path
-from resources.views import home, search, download_item, preview_item, add_resource_item, add_resource_url, add_resource, resource_item_detail, course_detail, course_list
+from resources.views import home, search, download_item, preview_item, add_resource_item, add_resource_url, add_resource, resource_item_detail, course_detail, course_list, all_resource, resource_url_detail
 
 urlpatterns = [
     path('', home, name = "HomePage"),
@@ -10,6 +10,8 @@ urlpatterns = [
     path('add-notes/', add_resource_item, name="AddResourceFile"),
     path('add-notes-urls/', add_resource_url, name="AddResourceURL"),
     path('notes-detail/<slug:slug>/<int:pk>/', resource_item_detail, name="ResourceItemDetail"),
+    path('notes-url-detail/<int:pk>/', resource_url_detail, name="ResourceURLDetail"),
     path('course_detail/<str:course_code>/', course_detail, name = "CourseDetail"),
     path('course_list/', course_list, name="CourseList"),
+    path('all_resource/', all_resource, name="AllResource"),
 ]

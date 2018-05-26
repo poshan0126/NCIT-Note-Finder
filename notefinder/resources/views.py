@@ -104,6 +104,15 @@ def resource_item_detail(request, pk, slug):
     return render(request, template_name, context)
 
 
+def resource_url_detail(request, pk):
+    resource = get_object_or_404(ResourceURL, pk=pk)
+    template_name = 'resources/resource_url_detail.html'
+    context = {
+        'resource':resource
+    }
+    return render(request, template_name, context)
+
+
 
 
 def add_resource_url(request):
@@ -131,6 +140,16 @@ def course_detail(request, course_code):
     context = {
         "course":course,
         "resources":resources
+    }
+    return render(request, template_name, context)
+
+def all_resource(request):
+    all_resource_item = ResourceItem.objects.all()
+    all_resource_url = ResourceURL.objects.all()
+    template_name = "resources/all_resource.html"
+    context = {
+        'all_resource_item':all_resource_item,
+        'all_resource_url':all_resource_url
     }
     return render(request, template_name, context)
 

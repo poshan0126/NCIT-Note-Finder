@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block Title %}
+
+All Resources
+    
+{% endblock Title %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>All the Files we got!!</h1>
+        <div class ="row">
+
+            <div class = "col-md-6 col-xs-12">
+
+                {% for  resource_item in all_resource_item  %}
+                    <ul>
+                        <li><a href="{% url 'ResourceItemDetail' slug=resource_item.slug pk=resource_item.pk %}">{{resource_item.title}}</a></li>
+                    </ul>
+                    
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <h1>All the URLs we got!!</h1>
+        <div class ="row">
+
+            <div class = "col-md-6 col-xs-12">
+
+                {% for  resource_url in all_resource_url  %}
+                    <ul>
+                        <li><a href="{% url 'ResourceURLDetail' pk=resource_url.pk %}">{{resource_url.title}}</a></li>
+                    </ul>
+                    
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+    
+{% endblock content %}
