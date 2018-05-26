@@ -14,11 +14,20 @@ class ResourceItemAdmin(admin.ModelAdmin):
     '''
         Admin View for ResourceItem
     '''
-    list_display = ('file', 'description',)
+    list_display = ('title', 'file', 'description',)
+    prepopulated_fields = {'slug':('title',)}
+
+class ResourceURLAdmin(admin.ModelAdmin):
+    '''
+        Admin View for ResourceURL
+    '''
+    list_display = ('title', 'url', 'description')
+    prepopulated_fields = {'slug':('title',)}
+
+admin.site.register(ResourceURL, ResourceURLAdmin)
 
 
 admin.site.register(ResourceItem, ResourceItemAdmin)
-admin.site.register(ResourceURL)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(DeptSem)
 admin.site.register(Faculty)
