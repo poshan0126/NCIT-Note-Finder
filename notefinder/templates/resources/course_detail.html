@@ -14,11 +14,19 @@
             <h1>{{course.name}}</h1>
             <p>{{course.description}}</p>
             <ul>
+                <h2>All the Files we Got!!</h2>
                 {% for resource in resources  %}
                     <li><a href="{% url 'ResourceItemDetail' slug=resource.slug pk=resource.pk %}">{{resource.title|truncatechars:36}}</a></li>
                     
                 {% endfor %}
 
+            </ul>
+
+            <ul>
+                <h2>All the URLs we Got!!</h2>
+                {% for url_resource in url_resources  %}
+                    <li><a href="{% url 'ResourceURLDetail' pk=url_resource.pk %}">{{url_resource.title}}</a></li>
+                {% endfor %}
             </ul>
 
             </div>

@@ -136,10 +136,12 @@ def add_resource_url(request):
 def course_detail(request, course_code):
     course = get_object_or_404(Course, code=course_code)
     resources = ResourceItem.objects.all().filter(course__code=course_code)
+    url_resources = ResourceURL.objects.all().filter(course__code=course_code)
     template_name = "resources/course_detail.html"
     context = {
         "course":course,
-        "resources":resources
+        "resources":resources,
+        "url_resources":url_resources,
     }
     return render(request, template_name, context)
 
