@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block Title %}
+    All Departments and Semesters  
+{% endblock Title %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>All the Departments and Semesters We Got!!</h1>
+        <div class ="row">
+
+            <div class = "col-md-6 col-xs-12">
+
+                {% for deptsem in deptsems  %}
+                    <ul>
+                        <li><a href ="{% url 'DeptSemDetail' pk=deptsem.pk %}">{{deptsem}}</a></li>
+                    </ul>
+                    
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+    
+{% endblock content %}

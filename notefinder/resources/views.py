@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from resources.models import ResourceItem, Course, ResourceURL
+from resources.models import ResourceItem, Course, ResourceURL, DeptSem
 from django.db.models import Q
 from django.http import FileResponse
 from django.utils.text import slugify
@@ -145,6 +145,19 @@ def course_detail(request, course_code):
     }
     return render(request, template_name, context)
 
+def deptsem_detail(request, pk):
+    depsem = get_object_or_404(DeptSem, pk=pk)
+    resources = ResourceItem.objects.all().filter(course__dept_sem__pk=pk)
+    template_name = "resources/deptsem_detail.html"
+    url_resources = ResourceURL.objects.all().filter(course__dept_sem__pk=pk)
+    context = {
+    "depsem":depsem,
+    "resources":resources,
+    "url_resources":url_resources,
+    }
+    return render(request, template_name,context)
+
+
 def all_resource(request):
     all_resource_item = ResourceItem.objects.all()
     all_resource_url = ResourceURL.objects.all()
@@ -161,6 +174,14 @@ def course_list(request):
     template_name = "resources/course_list.html"
     context = {
         "courses":courses,
+    }
+    return render(request, template_name,context)
+
+def deptsem_list(request):
+    deptsems = DeptSem.objects.all()
+    template_name = "resources/deptsem_list.html"
+    context = {
+        "deptsems":deptsems
     }
     return render(request, template_name,context)
 
