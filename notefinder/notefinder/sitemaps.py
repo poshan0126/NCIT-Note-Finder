@@ -15,3 +15,10 @@ class ResourceURLSitemap(Sitemap):
 
     def items(self):
         return ResourceURL.objects.all()
+
+class CourseSitemap(Sitemap):
+    changefreq = "never"
+    priority = 0.9
+
+    def items(self):
+        return Course.objects.all()
