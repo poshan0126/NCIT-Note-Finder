@@ -17,11 +17,27 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from .settings import *
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import ResourceURLSitemap, ResourceItemSitemap
+
+sitemaps = {
+    'resources-item': ResourceItemSitemap,
+    'resources-url' : ResourceURLSitemap,
+    }
+
+sitemap_urls = [
+            path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+                name='django.contrib.sitemaps.views.sitemap'),
+
+    ]
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("resources.urls")),
 ]
+
+urlpatterns += sitemap_urls
 
 urlpatterns += static(MEDIA_URL,
                  document_root=MEDIA_ROOT)

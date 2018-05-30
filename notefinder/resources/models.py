@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -134,6 +135,9 @@ class ResourceItem(models.Model):
         size = self.file.size / 1000000
         return size
 
+    def get_absolute_url(self):
+        return reverse('ResourceItemDetail', kwargs={'slug': self.slug, 'pk':self.pk})
+
 
 class ResourceURL(models.Model):
     title = models.CharField(max_length=100)
@@ -150,3 +154,7 @@ class ResourceURL(models.Model):
 
     def __str__(self):
         return self.url
+
+    def get_absolute_url(self):
+        return reverse('ResourceURLDetail', kwargs={'pk':self.pk})
+
