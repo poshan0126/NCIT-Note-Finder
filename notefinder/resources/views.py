@@ -182,7 +182,7 @@ def course_list(request):
     return render(request, template_name,context)
 
 def deptsem_list(request):
-    deptsems = DeptSem.objects.all()
+    deptsems = DeptSem.objects.all().order_by('name')
     template_name = "resources/deptsem_list.html"
     context = {
         "deptsems":deptsems
