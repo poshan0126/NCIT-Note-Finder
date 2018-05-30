@@ -18,12 +18,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from .settings import *
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import ResourceURLSitemap, ResourceItemSitemap, CourseSitemap
+from .sitemaps import ResourceURLSitemap, ResourceItemSitemap, CourseSitemap, DeptSemSitemap
 
 sitemaps = {
     'resources-item': ResourceItemSitemap,
     'resources-url' : ResourceURLSitemap,
     'courses'       : CourseSitemap,
+    'departments-and-semester' : DeptSemSitemap,
     }
 
 sitemap_urls = [
