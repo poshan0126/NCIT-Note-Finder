@@ -1,62 +1,35 @@
 {% extends "base.html" %}
 
 {% block Title %}
-    Search Result
+    Search Results {{query_string}}   
 {% endblock Title %}
 
+
 {% block content %}
-
     <div class = "container">
-            <div class = "row">
-                <div class="col-md-6 col-xs-12">
-                    {% if resources %}
-                    <h1> All the Files We Got!!</h1>
+        <div classs = "row">
+            <div class = "col-md-6 col-xs-12">
 
-                    <div class="row">
+            <h1>Search Results for: {{query_string}}</h1>
+            <p>NCIT NOTEFINDER : {{query_string}}</p>
+            <ul>
+                <h2>All the Files we Got!!</h2>
+                {% for resource in resources  %}
+                    <li><a href="{% url 'ResourceItemDetail' slug=resource.slug pk=resource.pk %}">{{resource.title|truncatechars:36}}</a></li>
+                {% endfor %}
 
-                        {% for resource in resources  %}
-                            <div class = "col-md-4 col-xs-6">
+            </ul>
 
-                                <h4><a href="{% url 'ResourceItemDetail' slug=resource.slug pk=resource.pk %}">{{resource.title|truncatechars:36}}</a></h4>
-                                    
-                            </div>
-
-                        {% endfor %}
-                    </div>
-                    {% else %}
-                        <h1>Sorry!! We are blank. No Files Found.</h1>
-                    {% endif %}
-
-                </div> <!-- //half -->
-
-                <div class="col-md-6 col-xs-12">
-
-                    {% if url_resources %}
-                    <h1> All the URLs We Got!!</h1>
-                    <div class = "row">
-
+            <ul>
+                <h2>All the URLs we Got!!</h2>
+                
                         {% for url_resource in url_resources  %}
-                            <div class = "col-md-4 col-xs-6">
-
-                                <h4><a href="{% url 'ResourceURLDetail' pk=url_resource.pk %}">{{url_resource.title|truncatechars:44}}</a></h4>
-                                    
-                            </div>
-
+                                <li><a href="{% url 'ResourceURLDetail' pk=url_resource.pk %}">{{url_resource.title|truncatechars:44}}</a></li>
                         {% endfor %}
-                    </div>
-                    {% else %}
-                        <h1>Sorry!! We are blank. No URLs found.</h1>
-                    {% endif %}
+            </ul>
 
-                </div>
+            </div>
+        </div>
 
-            </div> <!-- //Row -->
-    </div>
-
-
-
-
-
+    </div>    
 {% endblock content %}
-
-

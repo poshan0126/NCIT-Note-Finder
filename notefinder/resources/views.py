@@ -41,10 +41,14 @@ def search(request):
             Q(url__icontains=query_string)|
             Q(tags__name__in=[query_string])
             ).distinct()
+    else:
+        query_string = ""
     template_name = "resources/search_results.html"
     context = {
         "resources": resources,
         "url_resources":url_resources,
+        "query_string": query_string,
+
     }
     return render(request, template_name, context)
 
