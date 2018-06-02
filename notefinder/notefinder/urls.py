@@ -37,6 +37,7 @@ sitemap_urls = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("resources.urls")),
+    path('taggit_autosuggest', include('taggit_autosuggest.urls')),
 ]
 
 urlpatterns += sitemap_urls
