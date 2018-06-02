@@ -47,6 +47,7 @@ MY_APPS = [
 THIRD_PARTY_APPS = [
     "taggit",
     "crispy_forms",
+    "taggit_autosuggest",
 
 ]
 
