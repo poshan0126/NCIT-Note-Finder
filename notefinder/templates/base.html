@@ -7,8 +7,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="NCIT Note Finder, Pokhara University Engineering Notes">
-    <meta name="keywords" content = "NCIT, NOTES, Pokhara University Engineering Notes.">
+    {% block meta %}
+      <meta name="description" content="NCIT Note Finder, Pokhara University Engineering Notes">
+      <meta name="keywords" content = "NCIT, NOTES, Pokhara University Engineering Notes.">
+      
+    {% endblock meta %}
+    
     <meta name="author" content="">
 
     <title>{% block Title %} {% endblock Title %} | NCIT NOTE FINDER | Pokhara University Engineering Notes</title>

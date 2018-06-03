@@ -138,8 +138,13 @@ class ResourceItem(models.Model):
         return self.file.name
 
     def get_size(self):
-        size = self.file.size / 1000000
-        return size
+        # size = self.file.size / 1000000
+        return self.file.size
+
+    def get_keywords(self):
+        title = self.title
+        keywords = title.replace(' ', ',')
+        return keywords
 
     def get_absolute_url(self):
         return reverse('ResourceItemDetail', kwargs={'slug': self.slug, 'pk':self.pk})

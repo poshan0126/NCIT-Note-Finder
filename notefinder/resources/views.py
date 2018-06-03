@@ -101,9 +101,13 @@ def add_resource_item(request):
 
 def resource_item_detail(request, pk, slug):
     resource = get_object_or_404(ResourceItem, pk=pk)
+    resource_size = resource.get_size()
+    resource_keywords = resource.get_keywords()
     template_name = 'resources/resource_item_detail.html'
     context = {
-        'resource':resource
+        'resource':resource,
+        'resource_size': resource_size,
+        'resource_keywords': resource_keywords,
     }
     return render(request, template_name, context)
 
