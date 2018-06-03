@@ -18,7 +18,7 @@
             <div class = "col-md-6 col-xs-12">
 
                 <h1>{{resource.title}}</h1>
-                <p>{{resource.description}}</p>
+                <p>{{resource.description|safe}}</p>
                 <p>Size: {{resource_size|filesizeformat}}</p>
                 <a href="{% url 'Download' id=resource.id %}" class = "btn btn-primary">Download</a>
                 <a href="{% url 'Preview' id=resource.id %}" class = "btn btn-warning">Preview</a>
