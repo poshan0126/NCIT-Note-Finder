@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from .settings import *
+from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import ResourceURLSitemap, ResourceItemSitemap, CourseSitemap, DeptSemSitemap
 
@@ -38,6 +39,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("resources.urls")),
     path('taggit_autosuggest', include('taggit_autosuggest.urls')),
+    path('who-own-these-notes/', TemplateView.as_view(template_name="notes_ownership.html"), name="NotesOwnership"),
 ]
 
 urlpatterns += sitemap_urls
