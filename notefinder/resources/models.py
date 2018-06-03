@@ -165,6 +165,11 @@ class ResourceURL(models.Model):
 
     def __str__(self):
         return self.url
+        
+    def get_keywords(self):
+        title = self.title
+        keywords = title.replace(' ', ',')
+        return keywords
 
     def get_absolute_url(self):
         return reverse('ResourceURLDetail', kwargs={'pk':self.pk})

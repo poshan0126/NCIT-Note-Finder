@@ -114,9 +114,11 @@ def resource_item_detail(request, pk, slug):
 
 def resource_url_detail(request, pk):
     resource = get_object_or_404(ResourceURL, pk=pk)
+    resource_url_keywords = resource.get_keywords()
     template_name = 'resources/resource_url_detail.html'
     context = {
-        'resource':resource
+        'resource':resource,
+        'resource_url_keywords': resource_url_keywords,
     }
     return render(request, template_name, context)
 
