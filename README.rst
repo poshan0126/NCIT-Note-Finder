@@ -23,4 +23,4 @@ Minimum Specification
 
 Advance Specification(Not Sure)
 ===============================
-1. A User Profile Section. Any user can freely register and create an account to manage their notes and study materials. After creating an account they can bookmark the notes So that they will have to suffer less when they delete the notes from their local Devi
+1. A User Profile Section. Any user can freely register and create an account to manage their notes and study materials. After creating an account they can bookmark the notes So that they will have to suffer less when they delete the notes from their local Device.
